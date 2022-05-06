@@ -1,6 +1,7 @@
 ### 获取DOM元素
 1. #### document.getElementById()
-2. #### document.getElementByClass()
+2. #### document.getElementsByClassName()
+3. #### document.getElementsByTagName()
 ### 创建、插入和删除元素
 ---
 1. #### 创建DOM元素

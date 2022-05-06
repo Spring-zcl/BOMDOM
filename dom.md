@@ -1,7 +1,11 @@
 ### 获取DOM元素
-1. #### document.getElementById()
-2. #### document.getElementsByClassName()
-3. #### document.getElementsByTagName()
+---
+1. 
+    - document.getElementById()
+    - document.getElementsByTagName()
+2. #### H5新增获取方法
+    - document.getElementsByClassName()
+---
 ### 创建、插入和删除元素
 ---
 1. #### 创建DOM元素

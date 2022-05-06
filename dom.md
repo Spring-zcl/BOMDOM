@@ -56,6 +56,13 @@ element.innerText
 // 包括HTML标签、空格、换行
 element.innerHTML
 ```
+## 样式属性修改
+可以通过js修改元素的大小、颜色、位置等样式
+1. element.style---------------行内样式操作
+2. element.className-----------类名样式操作
+### 注意
+1. js里面的样式采取驼峰命名法，比如 fontSize、backgroundColor
+2. js修改style样式操作，产生的是行内样式，css权重比较高
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

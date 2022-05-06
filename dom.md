@@ -11,11 +11,8 @@
 5. #### 获取html元素
     - document.documentElement
 ## 事件
----
 ### 事件执行步骤
----
 ## 创建、插入和删除元素
----
 1. #### 创建DOM元素
     - **createElement(标签名)** -------------------创建一个节点
     - **appendChild(节点)** -----------------------追加一个节点
@@ -26,7 +23,6 @@
 4. #### 文档碎片
     - 文档碎片可以提高DOM操作性能（理论上）
     - **document.createDocumentFragment()**
----
 示例：
 ```html
 <!DOCTYPE html>

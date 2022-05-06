@@ -13,11 +13,17 @@
 ## 事件
 ### 事件执行步骤
 1. 获取事件源
-    - var ele = document.querySelector('div')
+```javascript
+var ele = document.querySelector('div')
+```
 2. 绑定事件，注册事件
-    - ele.onclick
+```javascript
+ele.onclick
+```
 3. 添加事件处理程序
-    - ele.onclick = function() {}
+```javascript
+ele.onclick = function() {}
+```
 ### 常见鼠标事件
 |鼠标事件|触发条件|
 |---|---|
@@ -29,6 +35,8 @@
 |onmousemove|鼠标移动触发|
 |onmouseup|鼠标弹起触发|
 |onmousedon|鼠标按下触发|
+## 修改元素内容
+
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
     - **createElement(标签名)** -------------------创建一个节点

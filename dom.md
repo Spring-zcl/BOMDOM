@@ -1,5 +1,4 @@
 ## 获取DOM元素
----
 1. 
     - document.getElementById()
     - document.getElementsByTagName()
@@ -11,7 +10,6 @@
     - document.body
 5. #### 获取html元素
     - document.documentElement
----
 ## 事件
 ---
 ### 事件执行步骤

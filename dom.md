@@ -60,13 +60,13 @@ element.innerHTML
 可以通过js修改元素的大小、颜色、位置等样式
 1. element.style---------------行内样式操作
 #### 注意
-    -js里面的样式采取驼峰命名法，比如 fontSize、backgroundColor
-    -js修改style样式操作，产生的是行内样式，css权重比较高
+    1. js里面的样式采取驼峰命名法，比如 fontSize、backgroundColor
+    2. js修改style样式操作，产生的是行内样式，css权重比较高
 2. element.className-----------类名样式操作
 #### 注意
-    如果样式修改较多，可以采取操作类名方式更改元素样式
-    class因为是个保留字，因此使用className来操作元素类名属性
-    className会直接更改元素的类名，会覆盖原先的类名
+    1. 如果样式修改较多，可以采取操作类名方式更改元素样式
+    2. class因为是个保留字，因此使用className来操作元素类名属性
+    3. className会直接更改元素的类名，会覆盖原先的类名
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

@@ -1,12 +1,22 @@
-### 获取DOM元素
+## 获取DOM元素
 ---
 1. 
     - document.getElementById()
     - document.getElementsByTagName()
 2. #### H5新增获取方法
     - document.getElementsByClassName()
+    - document.querySelector()---------------------返回指定选择器的第一个元素对象，选择器需加符号
+    - document.querySelectorAll()------------------返回指定选择器的所有元素对象集合
+3. #### 获取body元素
+    - document.body
+5. #### 获取html元素
+    - document.documentElement
 ---
-### 创建、插入和删除元素
+## 事件
+---
+### 事件执行步骤
+---
+## 创建、插入和删除元素
 ---
 1. #### 创建DOM元素
     - **createElement(标签名)** -------------------创建一个节点

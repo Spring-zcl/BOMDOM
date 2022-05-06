@@ -1,15 +1,25 @@
 ## 获取DOM元素
 1. 
-    - document.getElementById()
-    - document.getElementsByTagName()
+```javascript
+document.getElementById()
+document.getElementsByTagName()
+```
 2. #### H5新增获取方法
-    - document.getElementsByClassName()
-    - document.querySelector()---------------------返回指定选择器的第一个元素对象，选择器需加符号
-    - document.querySelectorAll()------------------返回指定选择器的所有元素对象集合
+```javascript
+document.getElementsByClassName()
+// 返回指定选择器的第一个元素对象，选择器需加符号
+document.querySelector()
+// 返回指定选择器的所有元素对象集合
+document.querySelectorAll()
+```
 3. #### 获取body元素
-    - document.body
+```javascript
+document.body
+```
 5. #### 获取html元素
-    - document.documentElement
+```javascript
+document.documentElement
+```
 ## 事件
 ### 事件执行步骤
 1. 获取事件源
@@ -36,7 +46,16 @@ ele.onclick = function() {}
 |onmouseup|鼠标弹起触发|
 |onmousedon|鼠标按下触发|
 ## 修改元素内容
-
+1. innerText
+```javaScript
+// 去除HTML标签、空格、换行
+element.innerText
+```
+2. innerHTML
+```javaScript
+// 包括HTML标签、空格、换行
+element.innerHTML
+```
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
     - **createElement(标签名)** -------------------创建一个节点

@@ -12,6 +12,12 @@
     - document.documentElement
 ## 事件
 ### 事件执行步骤
+1. 获取事件源
+    - var ele = document.querySelector('div')
+2. 绑定事件，注册事件
+    - ele.onclick
+3. 添加事件处理程序
+    - ele.onclick = function() {}
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
     - **createElement(标签名)** -------------------创建一个节点

@@ -67,6 +67,10 @@ element.innerHTML
     1. 如果样式修改较多，可以采取操作类名方式更改元素样式
     2. class因为是个保留字，因此使用className来操作元素类名属性
     3. className会直接更改元素的类名，会覆盖原先的类名
+## 自定义属性的操作
+### 获取属性值
+    element.属性  获取内置属性值（元素本身自带的属性）
+    element.getAttribute('属性')   可获取自定义的属性
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

@@ -82,6 +82,9 @@ H5规定自定义属性‘data-’开头作为属性名并赋值
 <div data-index='1'></div>
 element.setAttribute('data-index',1)
 ```
+获取H5自定义属性
+1. element.getAttribute('data-index')
+2. H5新增element.dataset.index 或者 element.dataset['index'] 
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

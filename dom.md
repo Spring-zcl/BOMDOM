@@ -85,6 +85,12 @@ element.setAttribute('data-index',1)
 获取H5自定义属性
 1. element.getAttribute('data-index')
 2. H5新增element.dataset.index 或者 element.dataset['index'] 
+#### 注意：
+1. dataset只能获取‘data-’开头的
+2. dataset里面存放了所有‘data-’开头的自定义属性
+3. 如果自定义属性里面有多个-连接的单词，获取的时候使用驼峰命名
+    element.getAttribute('data-list-name')
+    element.dataset['listName']
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

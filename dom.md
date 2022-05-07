@@ -76,6 +76,12 @@ element.innerHTML
     element.setAttribute('属性','值')  可设置自定义的属性
 ### 移除属性
     element.removeAttribute('属性')
+## 设置H5自定义属性
+H5规定自定义属性‘data-’开头作为属性名并赋值
+```
+<div data-index='1'></div>
+element.setAttribute('data-index',1)
+```
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

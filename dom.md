@@ -71,6 +71,11 @@ element.innerHTML
 ### 获取属性值
     element.属性  获取内置属性值（元素本身自带的属性）
     element.getAttribute('属性')   可获取自定义的属性
+### 设置属性值
+    element.属性 = '值'  设置内置属性值
+    element.setAttribute('属性','值')  可设置自定义的属性
+### 移除属性
+    element.removeAttribute('属性')
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

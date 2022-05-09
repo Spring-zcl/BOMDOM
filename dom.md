@@ -99,9 +99,29 @@ element.setAttribute('data-index',1)
 ## 节点层级
 ### 1. 父级节点
 ```
+// parentNode属性返回某节点的最近一个父节点，如果指定的节点没有父节点则返回null
 node.parentNode
 ```
-    - parentNode属性返回某节点的最近一个父节点，如果指定的节点没有父节点则返回null
+### 2. 子节点
+```
+parentNode.childNodes // (标准)
+```
+#### 注意：
+返回值里面包含了所有的子节点，包括元素节点，文本节点等
+```
+parentNode.children // (非标准)
+```
+parentNode.children是个只读属性，返回所有的子元素节点。只返回子元素节点，其余节点不返回
+```
+element.firstChild
+element.lastChild
+```
+第一个最后一个子节点，不管是文本节点还是元素节点
+```
+element.firstElementChild
+element.lastElementChild
+```
+第一个最后一个子元素节点
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

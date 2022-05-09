@@ -172,6 +172,17 @@ node.insertBefore(child, 指定元素)
 
 node.removeChild(child)
 ```
+### 6. 阻止连接跳转
+```
+<a herf='javascript:;'/>
+<a herf='javascript:void(0);'/>
+```
+### 7. 复制节点（克隆节点）
+```
+// 返回调用该方法的节点的一个副本
+// 括号里的可选择默认为false，是浅拷贝，只克隆节点本身，不包括节点里面的子节点，为true则相反
+node.cloneNode()
+```
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

@@ -166,6 +166,12 @@ node.appendChild(child)
 
 node.insertBefore(child, 指定元素)
 ```
+### 5. 删除节点
+```
+// 从父节点中删除一个子节点，返回删除的节点
+
+node.removeChild(child)
+```
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

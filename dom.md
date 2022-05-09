@@ -96,6 +96,12 @@ element.setAttribute('data-index',1)
     - 元素节点nodeType为1
     - 属性节点nodeType为2
     - 文本节点nodeType为3（文本几点包含文字、空格、换行等）
+## 节点层级
+### 1. 父级节点
+```
+node.parentNode
+```
+    - parentNode属性返回某节点的最近一个父节点，如果指定的节点没有父节点则返回null
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

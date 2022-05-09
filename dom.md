@@ -156,6 +156,16 @@ node.nextElementSibling
 
 node.previousElementSibling
 ```
+### 4. 添加节点
+```
+// 将一个节点添加到指点父节点的子节点列表末尾
+
+node.appendChild(child)
+
+// 将一个节点添加到父节点的指定子节点前面
+
+node.insertBefore(child, 指定元素)
+```
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

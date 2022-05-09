@@ -91,6 +91,11 @@ element.setAttribute('data-index',1)
 3. 如果自定义属性里面有多个-连接的单词，获取的时候使用驼峰命名
     element.getAttribute('data-list-name')
     element.dataset['listName']
+## 节点概述
+1. 节点有nodeType（节点类型）、nodeName（节点名称）和nodeValue（节点值）三个属性
+    - 元素节点nodeType为1
+    - 属性节点nodeType为2
+    - 文本节点nodeType为3（文本几点包含文字、空格、换行等）
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

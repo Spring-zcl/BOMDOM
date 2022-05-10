@@ -202,7 +202,7 @@ eventTarget.addEventListener(type, listener[, useCapture])
 
 // type: 事件类型字符串，如click， mouseover
 // listener: 事件处理函数，事件发生时，会调用该监听函数
-// useCapture: 可选参数，默认false,为false时是事件冒泡，为true时是事件捕获
+// useCapture: 可选参数，默认false,为false时表示在事件冒泡阶段调用事件处理程序，为true时表示在事件捕获阶段调用事件处理程序
 ```
 ### 2. 删除事件
 ```

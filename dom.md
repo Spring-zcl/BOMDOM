@@ -183,6 +183,39 @@ node.removeChild(child)
 // 括号里的可选择默认为false，是浅拷贝，只克隆节点本身，不包括节点里面的子节点，为true则相反
 node.cloneNode()
 ```
+### 8. 三种动态创建元素区别
+```
+document.write()
+element.innerHTML
+document.createElement()
+```
+#### 区别
+1. docuemnt.write是直接将内容写入页面的内容流，但是文档流执行完毕，会导致页面全部重绘
+2. innerHTML是将内容写入某个DOM节点，不会导致页面全部重绘
+3. innerHTML创建多个元素效率更高（不要拼接字符串，采取数组形式拼接），结构稍微复杂
+4. createElement（）创建多个元素效率稍微低一些，但是结构更清晰
+## 事件
+### 1. addEventListener事件监听
+```
+eventTarget.addEventListener(type, listener[, useCapture])
+// type: 事件类型字符串，如click， mouseover
+// listener: 事件处理函数，事件发生时，会调用该监听函数
+// useCapture: 可选参数，默认false,为false时是事件冒泡，为true时是事件捕获
+```
+### 2. 删除事件
+```
+// 方式一
+element.onclick = function() {
+    alert(1)
+    element.onclick = null
+}
+// 方式二
+element.addEventListener('click', fn)
+function fn() {
+    alert(1)
+    element.removeEventListener('click', fn)
+}
+```
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

@@ -219,6 +219,18 @@ function fn() {
     element.removeEventListener('click', fn)
 }
 ```
+### 3. 禁用右键菜单和禁止选中文字
+```
+// 禁用右键菜单
+document.addEventListener('contextmenu', function(e){
+    e.preventDefault()
+})
+
+// 禁止选中文字
+document.addEventListener('selectstart', function(e){
+    e.preventDefault()
+})
+```
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

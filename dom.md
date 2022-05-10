@@ -231,6 +231,15 @@ document.addEventListener('selectstart', function(e){
     e.preventDefault()
 })
 ```
+### 4. 鼠标事件对象
+|#### 鼠标事件对象 |#### 说明 |
+|---|---|
+|e.clientX|鼠标相对于浏览器窗口可视区的X坐标|
+|e.elientY|鼠标相对于浏览器窗口可视区的Y坐标|
+|e.pageX|鼠标相对于文档页面的X坐标|
+|e.pageY|鼠标相对于文档页面的Y坐标|
+|e.screenX|鼠标相对于电脑屏幕的X坐标|
+|e.screenY|鼠标相对于电脑屏幕的Y坐标|
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

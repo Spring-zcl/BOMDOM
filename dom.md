@@ -246,6 +246,12 @@ document.addEventListener('selectstart', function(e){
 |onkeydown|某个键盘按键被按下时触发|
 |onkeypress|某个键盘按键被按下时触发 但是它不能识别功能键 如Ctrl shitf 左右箭头|
 |onkeyup|某个键盘按键被松开时触发|
+### 6. 键盘事件对象
+|键盘事件对象属性|说明|
+|---|---|
+|keyCode|返回该键的ASCII值|
+#### 注意： 
+onkeydown 和 onkeyup不区分字母大小写，onkeypress区分大小写
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

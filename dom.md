@@ -181,6 +181,7 @@ node.removeChild(child)
 ```
 // 返回调用该方法的节点的一个副本
 // 括号里的可选择默认为false，是浅拷贝，只克隆节点本身，不包括节点里面的子节点，为true则相反
+
 node.cloneNode()
 ```
 ### 8. 三种动态创建元素区别
@@ -198,6 +199,7 @@ document.createElement()
 ### 1. addEventListener事件监听
 ```
 eventTarget.addEventListener(type, listener[, useCapture])
+
 // type: 事件类型字符串，如click， mouseover
 // listener: 事件处理函数，事件发生时，会调用该监听函数
 // useCapture: 可选参数，默认false,为false时是事件冒泡，为true时是事件捕获
@@ -209,6 +211,7 @@ element.onclick = function() {
     alert(1)
     element.onclick = null
 }
+
 // 方式二
 element.addEventListener('click', fn)
 function fn() {

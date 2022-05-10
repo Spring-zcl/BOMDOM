@@ -232,7 +232,7 @@ document.addEventListener('selectstart', function(e){
 })
 ```
 ### 4. 鼠标事件对象
-|#### 鼠标事件对象 |#### 说明 |
+|鼠标事件对象|说明|
 |---|---|
 |e.clientX|鼠标相对于浏览器窗口可视区的X坐标|
 |e.elientY|鼠标相对于浏览器窗口可视区的Y坐标|
@@ -240,6 +240,12 @@ document.addEventListener('selectstart', function(e){
 |e.pageY|鼠标相对于文档页面的Y坐标|
 |e.screenX|鼠标相对于电脑屏幕的X坐标|
 |e.screenY|鼠标相对于电脑屏幕的Y坐标|
+### 5. 常用键盘事件
+|键盘事件|触发条件|
+|---|---|
+|onkeydown|某个键盘按键被按下时触发|
+|onkeypress|某个键盘按键被按下时触发 但是它不能识别功能键 如Ctrl shitf 左右箭头|
+|onkeyup|某个键盘按键被松开时触发|
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

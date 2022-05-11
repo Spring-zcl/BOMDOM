@@ -279,6 +279,11 @@ window.setTimeout(调用函数，[延迟的毫秒数])
 // 3. 延迟的毫秒数默认为0，单位是毫秒
 // 4. 有多个定时器，可以给定时器赋值一个标识符
 ```
+### 2. clearTimeout()清除定时器
+```
+window.clearTimeout(timeoutID)
+// 参数timeoutID就是定时器标识符
+```
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

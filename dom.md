@@ -296,6 +296,11 @@ window.setInterval(回调函数，[间隔的毫秒数])
 // 3. 延迟的毫秒数默认为0，单位是毫秒
 // 4. 有多个定时器，可以给定时器赋值一个标识符
 ```
+### 4. clearInterval()清除定时器
+```
+window.clearInterval(intervalID)
+// 参数intervalID就是定时器标识符
+```
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

@@ -252,6 +252,11 @@ document.addEventListener('selectstart', function(e){
 |keyCode|返回该键的ASCII值|
 #### 注意： 
 onkeydown 和 onkeyup不区分字母大小写，onkeypress区分大小写
+## 窗口加载事件
+```
+document.addEventListener('DOMContentLoaded',function(){})
+// DOMContentLoaded事件出发时，仅当DOM加载完成，不包括样式表，图片，flash等等
+```
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

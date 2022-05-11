@@ -257,6 +257,16 @@ onkeydown 和 onkeyup不区分字母大小写，onkeypress区分大小写
 document.addEventListener('DOMContentLoaded',function(){})
 // DOMContentLoaded事件出发时，仅当DOM加载完成，不包括样式表，图片，flash等等
 ```
+## 调整窗口大小事件
+```
+window.onresize = function() {}
+window.addEventListener('resize', function() {})
+
+// window.onresize 是调整窗口大小加载事件，当触发时就调用的处理函数
+// 注意：
+// 1. 只要窗口大小发生像素变化，就会触发这个事件
+// 2. window.innerWidth当前屏幕的宽度
+```
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

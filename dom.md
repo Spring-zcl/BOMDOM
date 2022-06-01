@@ -340,6 +340,7 @@ URL的一版语法格式为：
  - 获得元素距离带有定位父元素的位置
  - 获得元素自身的大小（宽度高度）
  - 注意：返回的数值都不带单位
+### 2. offset系列属性
 |offset系列属性|作用|
 |---|---|
 |element.offsetParent|返回作为改元素带有定位的父级元素,如果父级元素没有定位则返回body|
@@ -347,7 +348,7 @@ URL的一版语法格式为：
 |element.offsetLeft|返回元素相对带有定位父元素左边框的偏移|
 |element.offsetWidth|返回自身包括padding、边框、内容区的宽度，返回数值不带单位|
 |element.offsetHeight|返回自身包括padding、边框、内容区的高度，返回数值不带单位|
-### 2. offset与style区别
+### 3. offset与style区别
 |offset|style|
 |---|---|
 |offset可以得到任意样式表中的样式值|style只能得到行内样式表中的样式值|

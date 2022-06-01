@@ -301,6 +301,28 @@ window.setInterval(回调函数，[间隔的毫秒数])
 window.clearInterval(intervalID)
 // 参数intervalID就是定时器标识符
 ```
+## location对象
+### 1.URL
+统一资源定位符（Uniform Resource Locator,URL）是互联网上标准资源的地址。互联网上的每个文件都会有一个唯一的URL，它包含的信息指出文件的位置以及浏览器应该怎么处理它。
+URL的一版语法格式为：
+    protocol://host[:port]/path/[?query]#fragment
+|组成|说明|
+|---|---|
+|protocol|通信协议如http,ftp,maito等|
+|host|主机（域名）|
+|port|端口号可选|
+|path|路径由零个或多个‘/’符号隔开的字符串，一般用来表示主机上的一个目录或文件地址|
+|query|参数以键值对的形式，通过‘&’符号分隔|
+|fragment|片段#后面的内容常见于链接锚点|
+### 2.location对象的属性
+|location对象属性|返回值|
+|---|---|
+|location.href|获取或者设置整个URL|
+|location.host|返回主机（域名）|
+|location.port|返回端口号|
+|location.pathname|返回路径|
+|location.search|返回参数|
+|location.hash|返回片段#后面的内容常见于链接锚点|
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

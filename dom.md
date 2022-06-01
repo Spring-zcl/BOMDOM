@@ -335,6 +335,26 @@ URL的一版语法格式为：
 |back()|后退功能|
 |forward()|前进功能|
 |go()|前进后退功能参数如果是1前进一个页面如果是-1后退一个页面|
+## 元素偏移量offset系列
+### 1. offset概述
+- 获得元素距离带有定位父元素的位置
+- 获得元素自身的大小（宽度高度）
+- 注意：返回的数值都不带单位
+|offset系列属性|作用|
+|---|---|
+|element.offsetParent|返回作为改元素带有定位的父级元素,如果父级元素没有定位则返回body|
+|element.offsetTop|返回元素相对带有定位父元素上方的偏移|
+|element.offsetLeft|返回元素相对带有定位父元素左边框的偏移|
+|element.offsetWidth|返回自身包括padding、边框、内容区的宽度，返回数值不带单位|
+|element.offsetHeight|返回自身包括padding、边框、内容区的高度，返回数值不带单位|
+### 2. offset与style区别
+|offset|style|
+|---|---|
+|offset可以得到任意样式表中的样式值|style只能得到行内样式表中的样式值|
+|offset系列获得的数值是没有单位的|style.width获得的是带有单位的字符串|
+|offsetWidth包含padding+border+width|style.width获得的不包含padding和border的值|
+|offsetWidth等属性是只读属性，只能获取不能赋值|style.wisth是可读属性，可以获取也可以赋值|
+|获取元素大小位置，用offset更合适|更改元素属性用style|
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

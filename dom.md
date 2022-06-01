@@ -323,6 +323,18 @@ URL的一版语法格式为：
 |location.pathname|返回路径|
 |location.search|返回参数|
 |location.hash|返回片段#后面的内容常见于链接锚点|
+### 3.location对象的方法
+|location对象方法|返回值|
+|---|---|
+|location.assign()|跟href一样，可以跳转页面，可以返回上个页面|
+|location.replace()|替换当前页面，因为不记录历史，所以不能后退页面|
+|location.reload()|重新加载页面，相当于刷新按钮或者f5，如果参数为true强制刷新Ctrl+f5|
+## history对象
+|history对象方法|作用|
+|---|---|
+|back()|后退功能|
+|forward()|前进功能|
+|go()|前进后退功能参数如果是1前进一个页面如果是-1后退一个页面|
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

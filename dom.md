@@ -363,6 +363,11 @@ URL的一版语法格式为：
 |element.clientLeft|返回元素左边框的大小|
 |element.clientWidth|返回自身包括padding、内容区的宽度，不含边框，返回的数值不带单位|
 |element.clientHeight|返回自身包括padding、内容区的高度，不含边框，返回数值不带单位|
+## 立即执行函数
+```
+(function(){}())
+(function(){})()
+```
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

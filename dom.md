@@ -20,6 +20,10 @@ document.body
 ```javascript
 document.documentElement
 ```
+6. #### 获取物理像素比
+```
+document.devicePixeRatio
+```
 ## 事件
 ### 事件执行步骤
 1. 获取事件源
@@ -368,6 +372,13 @@ URL的一版语法格式为：
 (function(){}())
 (function(){})()
 ```
+## 3. 元素滚动scroll系列
+|scroll系列属性|作用|
+|---|---|
+|element.scrollTop|返回被卷去的上侧距离，返回数值不带单位|
+|element.scrollLeft|返回卷去的左侧距离，返回数值不带单位|
+|element.scrollWidth|返回自身实际的宽度，包括padding、内容，不含边框，返回数据不带单位|
+|element.scrollHeight|返回自身实际的宽度，包括padding、内容，不含边框，返回数据不带单位|
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

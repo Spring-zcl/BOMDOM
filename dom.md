@@ -335,7 +335,7 @@ URL的一版语法格式为：
 |back()|后退功能|
 |forward()|前进功能|
 |go()|前进后退功能参数如果是1前进一个页面如果是-1后退一个页面|
-## 元素偏移量offset系列
+## 1. 元素偏移量offset系列
 ### 1. offset概述
  - 获得元素距离带有定位父元素的位置
  - 获得元素自身的大小（宽度高度）
@@ -356,6 +356,13 @@ URL的一版语法格式为：
 |offsetWidth包含padding+border+width|style.width获得的不包含padding和border的值|
 |offsetWidth等属性是只读属性，只能获取不能赋值|style.wisth是可读属性，可以获取也可以赋值|
 |获取元素大小位置，用offset更合适|更改元素属性用style|
+## 2. 元素可视区client系列
+|client系列属性|作用|
+|---|---|
+|element.clientTop|返回元素上边框的大小|
+|element.clientLeft|返回元素左边框的大小|
+|element.clientWidth|返回自身包括padding、内容区的宽度，不含边框，返回的数值不带单位|
+|element.clientHeight|返回自身包括padding、内容区的高度，不含边框，返回数值不带单位|
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

@@ -379,6 +379,8 @@ URL的一版语法格式为：
 |element.scrollLeft|返回卷去的左侧距离，返回数值不带单位|
 |element.scrollWidth|返回自身实际的宽度，包括padding、内容，不含边框，返回数据不带单位|
 |element.scrollHeight|返回自身实际的宽度，包括padding、内容，不含边框，返回数据不带单位|
+|window.pageYOffset|页面被卷去的头部|
+|window.pageXOffset|页面被卷去的左边|
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

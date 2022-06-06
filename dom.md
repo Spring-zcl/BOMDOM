@@ -49,6 +49,9 @@ ele.onclick = function() {}
 |onmousemove|鼠标移动触发|
 |onmouseup|鼠标弹起触发|
 |onmousedon|鼠标按下触发|
+### mouseenter和mouseover的区别
+- mouseover鼠标经过自身盒子会触发，经过子盒子会冒泡还会再次触发。mouseenter只会经过自身盒子触发
+- mouseenter搭配鼠标离开mouseleave，同样不会冒泡
 ## 修改元素内容
 1. innerText
 ```javaScript

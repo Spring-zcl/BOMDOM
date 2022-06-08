@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #search {
+      color: #999;
+    }
+
+    table {
+      width: 300px;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    thead tr {
+      color: #555;
+      background-color: antiquewhite;
+    }
+
+    tbody tr {
+      color: #999;
+      height: 50px;
+      border-bottom: 1px skyblue solid;
+    }
+
+    .highlight {
+      background-color: aqua;
+      color: red;
+      font-size: 20px;
+      transition: all 0.2s;
+    }
+
+    .easy {
+      transition: all 0.8s;
+    }
+
+    .product {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .product li {
+      cursor: pointer;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 10px;
+      background-color: rgb(255, 225, 225);
+    }
+
+    .product .productSelected {
+      color: azure;
+      background-color: rgb(253, 102, 102);
+    }
+
+    .item {
+      display: none;
+    }
+
+    .item1 {
+      display: block;
+    }
+
+    .tab>ul {
+      list-style: none;
+      display: flex;
+    }
+
+    .tab>ul>li {
+      margin: 0 10px;
+      position: relative;
+    }
+
+    .tab>ul>li>ul {
+      position: absolute;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: none;
+    }
+
+    .sbox {
+      margin-top: 80px;
+      position: relative;
+      width: 180px;
+    }
+
+    .sbox .con {
+      display: none;
+      position: absolute;
+      top: -45px;
+      min-width: 175px;
+      height: 35px;
+      border: #555 1px solid;
+      line-height: 35px;
+      font-weight: 700;
+    }
+
+    .sbox .con::before {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 8px;
+      height: 8px;
+      bottom: -5px;
+      left: 30px;
+      border-right: #555 1px solid;
+      border-bottom: #555 1px solid;
+      transform: rotate(45deg);
+      background-color: #fff;
+    }
+
+    .msgbox {
+      margin-top: 20px;
+    }
+
+    .dialog {
+      position: absolute;
+      z-index: 999;
+      width: 300px;
+      height: 220px;
+      border: #555 1px solid;
+      top: 10px;
+      right: 10px;
+      background-color: #fff;
+    }
+
+    .header {
+      cursor: move;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 30px;
+      padding: 0 5px;
+      border-bottom: #555 1px solid;
+      user-select: none;
+    }
+
+    .product_box {
+      cursor: move;
+      position: relative;
+      width: 400px;
+      height: 400px;
+      border: #ccc 1px solid;
+    }
+
+    .mask {
+      position: absolute;
+      display: none;
+      width: 200px;
+      height: 200px;
+      /* background-color: yellow; */
+      /* opacity: 0.3; */
+      background: url('./images/T12pdtXaldXXXXXXXX-2-2.png') repeat scroll 0 0 transparent;
+    }
+
+    .zoom {
+      display: none;
+      position: absolute;
+      right: -410px;
+      top: 0;
+      width: 400px;
+      height: 400px;
+      border: #ccc 1px solid;
+      overflow: hidden;
+    }
+
+    .zoom img {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      let searchContent = '手机'
+      const searchEle = document.getElementById('search')
+      searchEle.value = searchContent
+      searchEle.onfocus = function () {
+        if (this.value === searchContent) {
+          this.value = ''
+        }
+        this.style.color = '#333'
+      }
+      searchEle.onblur = function () {
+        if (!this.value) {
+          this.value = searchContent
+        }
+        this.style.color = '#999'
+      }
+      const bts = document.querySelectorAll('button')
+      for (var i = 0; i < bts.length; i++) {
+        bts[i].onclick = function () {
+          for (let j = 0; j < bts.length; j++) {
+            bts[j].style.backgroundColor = ''
+          }
+          this.style.backgroundColor = 'pink'
+        }
+      }
+      const tbodyTrs = document.querySelector('tbody').querySelectorAll('tr')
+      for (let i = 0; i < tbodyTrs.length; i++) {
+        tbodyTrs[i].onmouseover = function () {
+          this.className = 'highlight'
+        }
+        tbodyTrs[i].onmouseleave = function () {
+          this.className = 'easy'
+        }
+      }
+      const selectBox = document.querySelector('#selectBox')
+      const selectBoxs = document.querySelector('tbody').querySelectorAll('input')
+      selectBox.onclick = function () {
+        for (let i = 0, l = selectBoxs.length; i < l; i++) {
+          selectBoxs[i].checked = this.checked
+        }
+        // if (this.checked) {
+        //   for (let i = 0, l = selectBoxs.length; i < l; i++) {
+        //     selectBoxs[i].checked = true
+        //   }
+        // } else {
+        //   for (let i = 0, l = selectBoxs.length; i < l; i++) {
+        //     selectBoxs[i].checked = false
+        //   }
+        // }
+      }
+      for (let i = 0, l = selectBoxs.length; i < l; i++) {
+        // 方法一
+        /* selectBoxs[i].onclick = function () {
+          let arr = []
+          for (let j = 0, l = selectBoxs.length; j < l; j++) {
+            arr.push(selectBoxs[j].checked)
+          }
+          const isAllChecked = arr.some(function (item) {
+            return item === false
+          })
+          // isAllChecked ? selectBox.checked = false : selectBox.checked = true
+          selectBox.checked = !isAllChecked
+        } */
+        // 方法二 更高效
+        selectBoxs[i].onclick = function () {
+          let flag = true
+          for (let j = 0, l = selectBoxs.length; j < l; j++) {
+            // 只要有没选中的就推出循环，提高循环效率
+            if (!selectBoxs[j].checked) {
+              flag = false
+              break
+            }
+          }
+          selectBox.checked = flag
+        }
+      }
+
+      const liList = document.querySelector('.product').querySelectorAll('li')
+      const itemList = document.querySelectorAll('.item')
+      for (let i = 0, l = liList.length; i < l; i++) {
+        liList[i].setAttribute('data-index', i)
+        liList[i].onclick = function () {
+          for (let j = 0, l = liList.length; j < l; j++) {
+            liList[j].className = ''
+          }
+          this.className = 'productSelected'
+          for (let j = 0, l = itemList.length; j < l; j++) {
+            itemList[j].style.display = 'none'
+          }
+          itemList[this.getAttribute('data-index')].style.display = 'block'
+        }
+      }
+
+      const tabList = document.querySelector('.tab_list')
+      const tabLiList = tabList.children
+      for (let i = tabLiList.length - 1; i >= 0; i--) {
+        tabLiList[i].onmouseover = function () {
+          this.children[0].style.display = 'block'
+        }
+        tabLiList[i].onmouseleave = function () {
+          this.children[0].style.display = 'none'
+        }
+      }
+
+      function test() {
+        var el = {}
+        while (el = {
+          value: 2
+        }) {
+          console.log('in');
+          if (el.value === 1) {
+            return el.value
+          } else {
+            return null
+          }
+        }
+        return null
+      }
+      console.log(test())
+
+      const fnode = document.querySelector('.apd')
+      const cnode = document.createElement('li')
+      fnode.appendChild(cnode)
+      // fnode.insertBefore(cnode,fnode.children[0])
+      const cloneNode = document.querySelector('.clone_node')
+      const cNodeList = cloneNode.children
+      const cArr = []
+      for (let i = cNodeList.length - 1; i >= 0; i--) {
+        cArr.push(cNodeList[i].cloneNode(true))
+      }
+      for (let i = cArr.length - 1; i >= 0; i--) {
+        cloneNode.appendChild(cArr[i])
+      }
+
+      const stext = document.querySelector('.stext')
+      const con = stext.previousElementSibling
+      stext.addEventListener('keyup', function () {
+        if (this.value) {
+          con.style.display = 'block'
+          con.innerText = this.value
+        } else {
+          con.style.display = 'none'
+        }
+      })
+      stext.addEventListener('focus', function () {
+        if (this.value) {
+          con.style.display = 'block'
+        }
+      })
+      stext.addEventListener('blur', function () {
+        con.style.display = 'none'
+      })
+
+      const sentmsg = document.querySelector('.sentmsg')
+      let count = 60
+      function setTimer() {
+        if (count > 0) {
+          sentmsg.innerHTML = `${count}秒后重新发送`
+          count--
+        } else {
+          sentmsg.disabled = false
+          clearInterval(timer)
+          count = 60
+          sentmsg.innerHTML = `发送验证码`
+        }
+      }
+      let timer = null
+      sentmsg.addEventListener('click', function () {
+        this.disabled = true
+        setTimer()
+        timer = setInterval(setTimer, 1000)
+      })
+
+      const headerEle = document.querySelector('.header')
+      const dialogEle = document.querySelector('.dialog')
+      headerEle.addEventListener('mousedown', function (e) {
+        const mX = e.pageX - dialogEle.offsetLeft
+        const mY = e.pageY - dialogEle.offsetTop
+        function move(e) {
+          let x = e.pageX - mX
+          let y = e.pageY - mY
+          if (x <= 0) {
+            x = 0
+          } else if (x >= document.documentElement.offsetWidth - dialogEle.offsetWidth) {
+            x = document.documentElement.offsetWidth - dialogEle.offsetWidth
+          }
+          if (y <= 0) {
+            y = 0
+          } else if (y >= document.documentElement.offsetHeight - dialogEle.offsetHeight) {
+            y = document.documentElement.offsetHeight - dialogEle.offsetHeight
+          }
+          dialogEle.style.left = x + 'px'
+          dialogEle.style.top = y + 'px'
+        }
+        document.addEventListener('mousemove', move)
+        document.addEventListener('mouseup', function (e) {
+          document.removeEventListener('mousemove', move)
+        })
+      })
+      const openDialog = document.querySelector('#open_dialog')
+      const closeDialog = document.querySelector('#close')
+      closeDialog.addEventListener('click', function () {
+        dialogEle.style.display = 'none'
+      })
+      openDialog.addEventListener('click', function () {
+        dialogEle.style.display = 'block'
+      })
+
+      const zoomBox = document.querySelector('.zoom')
+      const mask = document.querySelector('.mask')
+      const productBox = document.querySelector('.product_box')
+      const bigImg = document.querySelector('.zoom img')
+      productBox.addEventListener('mouseover', function () {
+        zoomBox.style.display = 'block'
+        mask.style.display = 'block'
+      })
+      productBox.addEventListener('mouseout', function () {
+        zoomBox.style.display = 'none'
+        mask.style.display = 'none'
+      })
+      productBox.addEventListener('mousemove', function (e) {
+        const x = e.pageX - this.offsetLeft
+        const y = e.pageY - this.offsetTop
+        let maskX = x - mask.offsetHeight / 2
+        let maskY = y - mask.offsetWidth / 2
+        const maskMaxX = this.offsetWidth - mask.offsetWidth
+        const maskMaxY = this.offsetHeight - mask.offsetHeight
+        if (maskX <= 0) {
+          maskX = 0
+        } else if (maskX >= maskMaxX) {
+          maskX = maskMaxX
+        }
+        if (maskY <= 0) {
+          maskY = 0
+        } else if (maskY >= maskMaxY) {
+          maskY = maskMaxY
+        }
+        mask.style.left = maskX + 'px'
+        mask.style.top = maskY + 'px'
+        const bigImgMaxX = zoomBox.offsetWidth - bigImg.offsetWidth
+        const bigImgMaxY = zoomBox.offsetHeight - bigImg.offsetHeight
+        // maskX / maskMaxX = bigImgX / bigImgMaxX
+        const bigImgX = maskX * bigImgMaxX / maskMaxX
+        const bigImgY = maskY * bigImgMaxY / maskMaxY
+        bigImg.style.left = bigImgX + 'px'
+        bigImg.style.top = bigImgY + 'px'
+      })
+    }
+  </script>
+</head>
+
+<body>
+  <input type="text" id="search">
+
+  <button>按钮</button>
+  <button>按钮</button>
+  <button>按钮</button>
+  <button>按钮</button>
+  <button>按钮</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th><input type="checkbox" name="" id="selectBox"></th>
+        <th>product</th>
+        <th>price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="checkbox" name="" id=""></td>
+        <td>Apple</td>
+        <td>￥100</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="" id=""></td>
+        <td>Pear</td>
+        <td>￥200</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="" id=""></td>
+        <td>Banana</td>
+        <td>￥400</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="" id=""></td>
+        <td>Waterman</td>
+        <td>￥100</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="" id=""></td>
+        <td>Pineapple</td>
+        <td>￥10</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ul class="product">
+    <li class="productSelected">商品介绍</li>
+    <li>规格与包装</li>
+    <li>售后保障</li>
+    <li>商品评价（5000）</li>
+    <li>手机社区</li>
+  </ul>
+  <div class="item item1">商品介绍</div>
+  <div class="item">规格与包装</div>
+  <div class="item">售后保障</div>
+  <div class="item">商品评价（5000）</div>
+  <div class="item">手机社区</div>
+
+  <div class="tab">
+    <ul class="tab_list">
+      <li>
+        测试
+        <ul>
+          <li>12</li>
+          <li>12</li>
+          <li>12</li>
+          <li>12</li>
+        </ul>
+      </li>
+      <li>
+        测试
+        <ul>
+          <li>12</li>
+          <li>12</li>
+          <li>12</li>
+          <li>12</li>
+        </ul>
+      </li>
+      <li>
+        测试
+        <ul>
+          <li>12</li>
+          <li>12</li>
+          <li>12</li>
+          <li>12</li>
+        </ul>
+      </li>
+      <li>
+        测试
+        <ul>
+          <li>12</li>
+          <li>12</li>
+          <li>12</li>
+          <li>12</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <ul class="apd">
+      <li>asdfasd</li>
+    </ul>
+  </div>
+  <div>
+    <ul class="clone_node">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </div>
+
+  <div class="sbox">
+    <div class="con"></div>
+    <input class="stext" type="text" placeholder="请输入内容">
+  </div>
+
+  <div class="msgbox">
+    <button class="sentmsg">发送验证码</button>
+  </div>
+  
+  <button id="open_dialog">打开弹框</button>
+  <div class="dialog">
+    <div class="header"><span>弹框标题</span><button id="close">关闭</button></div>
+  </div>
+
+  <div class="product_box">
+    <img src="./images/O1CN01YokXB71HzGexfSMMB_!!272220828.jpg_400x400.jpg" alt="">
+    <div class="mask"></div>
+    <div class="zoom">
+      <img src="./images/O1CN01YokXB71HzGexfSMMB_!!272220828.jpg" alt="">
+    </div>
+  </div>
+</body>
+
+</html>

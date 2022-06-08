@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .product {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .product li {
+      cursor: pointer;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 10px;
+      background-color: rgb(255, 225, 225);
+    }
+
+    .product .productSelected {
+      color: azure;
+      background-color: rgb(253, 102, 102);
+    }
+
+    .item {
+      display: none;
+    }
+
+    .item1 {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="product">
+    <li class="productSelected">商品介绍</li>
+    <li>规格与包装</li>
+    <li>售后保障</li>
+    <li>商品评价（5000）</li>
+    <li>手机社区</li>
+  </ul>
+  <div class="item item1">商品介绍</div>
+  <div class="item">规格与包装</div>
+  <div class="item">售后保障</div>
+  <div class="item">商品评价（5000）</div>
+  <div class="item">手机社区</div>
+  <script>
+    window.addEventListener('load', function () {
+      const liList = document.querySelector('.product').querySelectorAll('li')
+      const itemList = document.querySelectorAll('.item')
+      for (let i = 0, l = liList.length; i < l; i++) {
+        liList[i].setAttribute('data-index', i)
+        liList[i].onclick = function () {
+          for (let j = 0, l = liList.length; j < l; j++) {
+            liList[j].className = ''
+          }
+          this.className = 'productSelected'
+          for (let j = 0, l = itemList.length; j < l; j++) {
+            itemList[j].style.display = 'none'
+          }
+          itemList[this.getAttribute('data-index')].style.display = 'block'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

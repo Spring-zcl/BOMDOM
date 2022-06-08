@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      width: 300px;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    thead tr {
+      color: #555;
+      background-color: antiquewhite;
+    }
+
+    tbody tr {
+      color: #999;
+      height: 50px;
+      border-bottom: 1px skyblue solid;
+    }
+
+    .highlight {
+      background-color: aqua;
+      color: red;
+      font-size: 20px;
+      transition: all 0.2s;
+    }
+
+    .easy {
+      transition: all 0.8s;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th><input type="checkbox" name="" id="selectBox"></th>
+        <th>product</th>
+        <th>price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="checkbox" name="" id=""></td>
+        <td>Apple</td>
+        <td>￥100</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="" id=""></td>
+        <td>Pear</td>
+        <td>￥200</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="" id=""></td>
+        <td>Banana</td>
+        <td>￥400</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="" id=""></td>
+        <td>Waterman</td>
+        <td>￥100</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="" id=""></td>
+        <td>Pineapple</td>
+        <td>￥10</td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    window.addEventListener('load', function () {
+      const tbodyTrs = document.querySelector('tbody').querySelectorAll('tr')
+      for (let i = 0; i < tbodyTrs.length; i++) {
+        tbodyTrs[i].onmouseover = function () {
+          this.className = 'highlight'
+        }
+        tbodyTrs[i].onmouseleave = function () {
+          this.className = 'easy'
+        }
+      }
+      const selectBox = document.querySelector('#selectBox')
+      const selectBoxs = document.querySelector('tbody').querySelectorAll('input')
+      selectBox.onclick = function () {
+        for (let i = 0, l = selectBoxs.length; i < l; i++) {
+          selectBoxs[i].checked = this.checked
+        }
+        // if (this.checked) {
+        //   for (let i = 0, l = selectBoxs.length; i < l; i++) {
+        //     selectBoxs[i].checked = true
+        //   }
+        // } else {
+        //   for (let i = 0, l = selectBoxs.length; i < l; i++) {
+        //     selectBoxs[i].checked = false
+        //   }
+        // }
+      }
+      for (let i = 0, l = selectBoxs.length; i < l; i++) {
+        // 方法一
+        /* selectBoxs[i].onclick = function () {
+          let arr = []
+          for (let j = 0, l = selectBoxs.length; j < l; j++) {
+            arr.push(selectBoxs[j].checked)
+          }
+          const isAllChecked = arr.some(function (item) {
+            return item === false
+          })
+          // isAllChecked ? selectBox.checked = false : selectBox.checked = true
+          selectBox.checked = !isAllChecked
+        } */
+        // 方法二 更高效
+        selectBoxs[i].onclick = function () {
+          let flag = true
+          for (let j = 0, l = selectBoxs.length; j < l; j++) {
+            // 只要有没选中的就推出循环，提高循环效率
+            if (!selectBoxs[j].checked) {
+              flag = false
+              break
+            }
+          }
+          selectBox.checked = flag
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

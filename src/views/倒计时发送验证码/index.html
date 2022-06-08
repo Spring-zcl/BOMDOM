@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="msgbox">
+    <button class="sentmsg">发送验证码</button>
+  </div>
+  <script>
+    window.addEventListener('load', function () {
+      const sentmsg = document.querySelector('.sentmsg')
+      let count = 60
+      function setTimer() {
+        if (count > 0) {
+          sentmsg.innerHTML = `${count}秒后重新发送`
+          count--
+        } else {
+          sentmsg.disabled = false
+          clearInterval(timer)
+          count = 60
+          sentmsg.innerHTML = `发送验证码`
+        }
+      }
+      let timer = null
+      sentmsg.addEventListener('click', function () {
+        this.disabled = true
+        setTimer()
+        timer = setInterval(setTimer, 1000)
+      })
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .sbox {
+      margin-top: 80px;
+      position: relative;
+      width: 180px;
+    }
+
+    .sbox .con {
+      display: none;
+      position: absolute;
+      top: -45px;
+      min-width: 175px;
+      height: 35px;
+      border: #555 1px solid;
+      line-height: 35px;
+      font-weight: 700;
+    }
+
+    .sbox .con::before {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 8px;
+      height: 8px;
+      bottom: -5px;
+      left: 30px;
+      border-right: #555 1px solid;
+      border-bottom: #555 1px solid;
+      transform: rotate(45deg);
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sbox">
+    <div class="con"></div>
+    <input class="stext" type="text" placeholder="请输入内容">
+  </div>
+  <script>
+    window.onload = function () {
+      const stext = document.querySelector('.stext')
+      const con = stext.previousElementSibling
+      stext.addEventListener('keyup', function () {
+        if (this.value) {
+          con.style.display = 'block'
+          con.innerText = this.value
+        } else {
+          con.style.display = 'none'
+        }
+      })
+      stext.addEventListener('focus', function () {
+        if (this.value) {
+          con.style.display = 'block'
+        }
+      })
+      stext.addEventListener('blur', function () {
+        con.style.display = 'none'
+      })
+    }
+  </script>
+</body>
+
+</html>

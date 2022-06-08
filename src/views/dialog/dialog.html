@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .dialog {
+      position: absolute;
+      z-index: 999;
+      width: 300px;
+      height: 220px;
+      border: #555 1px solid;
+      top: 10px;
+      right: 10px;
+      background-color: #fff;
+    }
+
+    .header {
+      cursor: move;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 30px;
+      padding: 0 5px;
+      border-bottom: #555 1px solid;
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="open_dialog">打开弹框</button>
+  <div class="dialog">
+    <div class="header"><span>弹框标题</span><button id="close">关闭</button></div>
+  </div>
+
+  <script>
+    window.onload = function () {
+      const headerEle = document.querySelector('.header')
+      const dialogEle = document.querySelector('.dialog')
+      headerEle.addEventListener('mousedown', function (e) {
+        const mX = e.pageX - dialogEle.offsetLeft
+        const mY = e.pageY - dialogEle.offsetTop
+        function move(e) {
+          let x = e.pageX - mX
+          let y = e.pageY - mY
+          if (x <= 0) {
+            x = 0
+          } else if (x >= document.documentElement.clientWidth - dialogEle.offsetWidth) {
+            x = document.documentElement.clientWidth - dialogEle.offsetWidth
+          }
+          if (y <= 0) {
+            y = 0
+          } else if (y >= document.documentElement.clientHeight - dialogEle.offsetHeight) {
+            y = document.documentElement.clientHeight - dialogEle.offsetHeight
+          }
+          dialogEle.style.left = x + 'px'
+          dialogEle.style.top = y + 'px'
+        }
+        document.addEventListener('mousemove', move)
+        document.addEventListener('mouseup', function (e) {
+          document.removeEventListener('mousemove', move)
+        })
+      })
+      const openDialog = document.querySelector('#open_dialog')
+      const closeDialog = document.querySelector('#close')
+      closeDialog.addEventListener('click', function () {
+        dialogEle.style.display = 'none'
+      })
+      openDialog.addEventListener('click', function () {
+        dialogEle.style.display = 'block'
+      })
+    }
+  </script>
+</body>
+
+</html>

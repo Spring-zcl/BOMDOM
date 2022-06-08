@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <ul class="apd">
+      <li>asdfasd</li>
+    </ul>
+  </div>
+  <div>
+    <ul class="clone_node">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </div>
+  <script>
+    window.addEventListener('load', function () {
+      const fnode = document.querySelector('.apd')
+      const cnode = document.createElement('li')
+      fnode.appendChild(cnode)
+      // fnode.insertBefore(cnode,fnode.children[0])
+      const cloneNode = document.querySelector('.clone_node')
+      const cNodeList = cloneNode.children
+      const cArr = []
+      for (let i = cNodeList.length - 1; i >= 0; i--) {
+        cArr.push(cNodeList[i].cloneNode(true))
+      }
+      for (let i = cArr.length - 1; i >= 0; i--) {
+        cloneNode.appendChild(cArr[i])
+      }
+    })
+  </script>
+</body>
+
+</html>

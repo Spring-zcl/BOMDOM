@@ -384,6 +384,27 @@ URL的一版语法格式为：
 |element.scrollHeight|返回自身实际的宽度，包括padding、内容，不含边框，返回数据不带单位|
 |window.pageYOffset|页面被卷去的头部|
 |window.pageXOffset|页面被卷去的左边|
+## 本地存储
+### 1. sessionStorage
+--- 1. 生命周期为关闭浏览器窗口
+--- 2. 在同一个页面下可以共享数据
+--- 3. 以键值对的形式存储使用
+#### 存储数据：
+```javaScript
+sessionStorage.setItem(key,value)
+```
+#### 获取数据：
+```javaScript
+sessionStorage.getItem(key)
+```
+#### 删除数据：
+```javaScript
+sessionStorage.removeItem(key)
+```
+#### 删除所有数据：
+```javaScript
+sessionStorage.clear()
+```
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

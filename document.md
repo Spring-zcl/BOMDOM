@@ -405,6 +405,26 @@ sessionStorage.removeItem(key)
 ```javaScript
 sessionStorage.clear()
 ```
+### 2. localStorage
+1. 生命周期永久有效，除非手动删除否则关闭页面也会存在
+2. 可以多个页面共享
+3. 以键值对的形式存储使用
+#### 存储数据：
+```javaScript
+localStorage.setItem(key,value)
+```
+#### 获取数据：
+```javaScript
+localStorage.getItem(key)
+```
+#### 删除数据：
+```javaScript
+localStorage.removeItem(key)
+```
+#### 删除所有数据：
+```javaScript
+localStorage.clear()
+```
 ## 创建、插入和删除元素
 1. #### 创建DOM元素
 ```javaScript

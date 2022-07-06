@@ -386,9 +386,9 @@ URL的一版语法格式为：
 |window.pageXOffset|页面被卷去的左边|
 ## 本地存储
 ### 1. sessionStorage
---- 1. 生命周期为关闭浏览器窗口
---- 2. 在同一个页面下可以共享数据
---- 3. 以键值对的形式存储使用
+1. 生命周期为关闭浏览器窗口
+2. 在同一个页面下可以共享数据
+3. 以键值对的形式存储使用
 #### 存储数据：
 ```javaScript
 sessionStorage.setItem(key,value)
